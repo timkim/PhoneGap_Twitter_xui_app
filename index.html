@@ -3,13 +3,16 @@
     <head>
 		<title>PhoneGap Twitter xui app</title>
 		<script src="phonegap.js"></script>
+        <script src="lawnchair-0.6.1.js"></script>
 		<script src="xui-2.2.0.js"></script>
         <script type="text/javascript">
-             function appReady(){
-
-
+             function deviceReady(){
+                x$.ready(function(){
+                    console.log('App is ready to launch');
+                });
              }
-             document.addEventListener("deviceready", appReady, false);
+
+             document.addEventListener("deviceready", deviceReady, false);
         </script>
     </head>
 <body>
