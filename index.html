@@ -14,11 +14,20 @@
                 });
              }
 
-             document.addEventListener("deviceready", deviceReady, false);
+             //document.addEventListener("deviceready", deviceReady, false);
+             deviceReady();
         </script>
     </head>
 <body>
      <div id="wrap">
+        <div id="header">
+            <ul>
+                <li>Tweets</li>
+                <li>Favourites</li>
+            </ul>
+        </div>
+        <div id="tweets"></div>
+        <div id="favourites"></div>
      </div>
 </body>
 </html>
