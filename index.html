@@ -10,24 +10,60 @@
         <script type="text/javascript">
              function deviceReady(){
                 x$.ready(function(){
-                    console.log('App is ready to launch');
+                    x$('#favourites').setStyle('display','none');
+                    
+                    x$('#tweetButton').on('click',function(){
+                        // set button states
+                        if(x$('#favouriteButton').hasClass('active')){
+                            x$('#favouriteButton').removeClass('active');
+                            x$('#tweetButton').addClass('active');
+                            
+                            // switch panels
+                            x$('#tweets').setStyle('display','');
+                            x$('#favourites').setStyle('display','none');
+                        }
+                        
+                        
+                    });
+                    	
+                     x$('#favouriteButton').on('click',function(){
+                        // set button states
+                        if(x$('#tweetButton').hasClass('active')){
+                            x$('#tweetButton').removeClass('active');
+                            x$('#favouriteButton').addClass('active');
+                            
+                            // switch panels
+                            x$('#tweets').setStyle('display','none');
+                            x$('#favourites').setStyle('display','');             
+                        }
+
+                        
+                    });                   
                 });
              }
 
              //document.addEventListener("deviceready", deviceReady, false);
-             deviceReady();
+            deviceReady();
         </script>
     </head>
 <body>
      <div id="wrap">
         <div id="header">
             <ul>
-                <li>Tweets</li>
-                <li>Favourites</li>
+                <li id="tweetButton" class="active"><div>Tweets</div></li>
+                <li id="favouriteButton"><div>Favourites</div></li>
             </ul>
         </div>
-        <div id="tweets"></div>
-        <div id="favourites"></div>
+        
+        <div id="panels">
+            <div id="tweets">
+                This is where my tweets are going to be!
+            </div>
+            
+            <div id="favourites">
+                This is where my favourite tweets are going to be!
+            </div>
+        </div>
      </div>
 </body>
 </html>
